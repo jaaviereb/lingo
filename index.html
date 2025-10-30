@@ -1,55 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lingo</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <nav>
-      <a href="index.html"><img src="logo.png" alt="logo" /></a>
-      <button class="boton-ranking">Ranking</button>
-    </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lingo - Inicio de Sesión</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  
+  <h1>Bienvenido a Lingo</h1>
 
-    <div id="tabla"></div>
+  <div class="container">
+    <div class="registro">
+      <h2>Registro</h2>
+      <form action="main.html" method="get">
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
 
-    <div id="teclado-pantalla">
-      <div class="fila-teclas">
-        <button class="tecla">Q</button>
-        <button class="tecla">W</button>
-        <button class="tecla">E</button>
-        <button class="tecla">R</button>
-        <button class="tecla">T</button>
-        <button class="tecla">Y</button>
-        <button class="tecla">U</button>
-        <button class="tecla">I</button>
-        <button class="tecla">O</button>
-        <button class="tecla">P</button>
-      </div>
-      <div class="fila-teclas fila-2">
-        <button class="tecla">A</button>
-        <button class="tecla">S</button>
-        <button class="tecla">D</button>
-        <button class="tecla">F</button>
-        <button class="tecla">G</button>
-        <button class="tecla">H</button>
-        <button class="tecla">J</button>
-        <button class="tecla">K</button>
-        <button class="tecla">L</button>
-        <button class="tecla">Ñ</button>
+        <label for="usuario-registro">Usuario:</label>
+        <input type="text" id="usuario-registro" name="usuario" placeholder="Tu usuario" required>
 
-      </div>
-      <div class="fila-teclas fila-3">
-        <button class="tecla">Z</button>
-        <button class="tecla">X</button>
-        <button class="tecla">C</button>
-        <button class="tecla">V</button>
-        <button class="tecla">B</button>
-        <button class="tecla">N</button>
-        <button class="tecla">M</button>
-      </div>
+        <label for="password-registro">Contraseña:</label>
+        <input type="password" id="password-registro" name="password" placeholder="••••••••" required>
+
+        <button type="submit">Registrarse</button>
+      </form>
     </div>
-  </body>
+
+    <div class="iniciosesion">
+      <h2>Iniciar Sesión</h2>
+      <form action="main.html" method="get">
+        <label for="usuario-login">Usuario:</label>
+        <input type="text" id="usuario-login" name="usuario" placeholder="Tu usuario" required>
+
+        <label for="password-login">Contraseña:</label>
+        <input type="password" id="password-login" name="password" placeholder="••••••••" required>
+
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+    </div>
+  </div>
+
+  <a class="invitado" href="main.html">Jugar como Invitado</a>
+
+</body>
 </html>
