@@ -3,45 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lingo - Inicio de Sesión</title>
+  <title>Lingo - Acceso</title>
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  
-  <h1>Bienvenido a Lingo</h1>
 
-  <div class="container">
-    <div class="registro">
-      <h2>Registro</h2>
-      <form action="main.html" method="get">
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+  <header>
+    <h1><span class="marca">Lingo</span></h1>
+    <p class="subtitulo">Tu puerta al aprendizaje interactivo</p>
+  </header>
 
-        <label for="usuario-registro">Usuario:</label>
-        <input type="text" id="usuario-registro" name="usuario" placeholder="Tu usuario" required>
+  <main class="contenedor">
+    <section class="tarjeta acceso">
+      <h2>Bienvenido</h2>
+      <p class="texto">Inicia sesión o crea tu cuenta en segundos.</p>
 
-        <label for="password-registro">Contraseña:</label>
-        <input type="password" id="password-registro" name="password" placeholder="••••••••" required>
+      <form action="main.html" method="get" class="formulario">
+        <div class="campo">
+          <input type="email" id="correo" name="correo" required>
+          <label for="correo">Correo</label>
+        </div>
 
-        <button type="submit">Registrarse</button>
+        <div class="campo">
+          <input type="text" id="usuario" name="usuario" required>
+          <label for="usuario">Usuario</label>
+        </div>
+
+        <div class="campo">
+          <input type="password" id="clave" name="clave" required>
+          <label for="clave">Contraseña</label>
+        </div>
+
+        <button type="submit" class="boton">Continuar</button>
       </form>
-    </div>
+    </section>
+  </main>
 
-    <div class="iniciosesion">
-      <h2>Iniciar Sesión</h2>
-      <form action="main.html" method="get">
-        <label for="usuario-login">Usuario:</label>
-        <input type="text" id="usuario-login" name="usuario" placeholder="Tu usuario" required>
-
-        <label for="password-login">Contraseña:</label>
-        <input type="password" id="password-login" name="password" placeholder="••••••••" required>
-
-        <button type="submit">Iniciar Sesión</button>
-      </form>
-    </div>
-  </div>
-
-  <a class="invitado" href="main.html">Jugar como Invitado</a>
+  <footer>
+    <a class="invitado" href="main.html">Jugar como invitado</a>
+  </footer>
 
 </body>
 </html>
