@@ -37,13 +37,19 @@ body {
   transform: scale(1.05);
 }
 
+
+.nav-botones {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .ranking {
   text-decoration: none;
   color: white;
   font-weight: 500;
   font-size: 1.05rem;
   position: relative;
-  transition: color 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -60,6 +66,21 @@ body {
 
 .ranking:hover::after {
   width: 100%;
+}
+
+button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #c94b47;
 }
 
 .titulo {

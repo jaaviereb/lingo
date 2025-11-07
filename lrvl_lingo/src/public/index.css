@@ -30,7 +30,6 @@ header {
   color: transparent;
 }
 
-
 .subtitulo {
   font-size: 1.1rem;
   color: #555;
@@ -105,59 +104,26 @@ main {
   text-align: center;
 }
 
+/* --------------------------
+   NUEVA SECCIÓN DE BOTONES
+--------------------------- */
 .formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
   width: 100%;
   z-index: 1;
 }
 
-.campo {
-  position: relative;
-  margin-bottom: 26px;
-}
-
-.campo input {
-  width: 100%;
-  padding: 14px 12px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  background-color: #fafafa;
-  transition: all 0.25s ease;
-}
-
-.campo input:focus {
-  border-color: #0078ff;
-  box-shadow: 0 0 8px rgba(0, 120, 255, 0.25);
-  background-color: #fff;
-  outline: none;
-}
-
-.campo label {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  color: #777;
-  font-size: 0.95rem;
-  pointer-events: none;
-  transition: all 0.25s ease;
-}
-
-.campo input:focus + label,
-.campo input:valid + label {
-  top: -8px;
-  left: 10px;
-  font-size: 0.8rem;
-  color: #0078ff;
-  background-color: #fff;
-  padding: 0 6px;
-}
-
+/* Base */
 .boton {
+  display: inline-block;
   width: 100%;
-  padding: 16px;
+  max-width: 240px;
+  padding: 16px 0;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(90deg, #0078ff, #00b8ff);
   color: #fff;
   font-size: 1.05rem;
   font-weight: 600;
@@ -165,8 +131,11 @@ main {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  text-align: center;
 }
 
+/* Efecto reflejo */
 .boton::after {
   content: "";
   position: absolute;
@@ -185,47 +154,26 @@ main {
 
 .boton:hover {
   transform: translateY(-2px);
+}
+
+/* Azul (Iniciar sesión) */
+.boton-azul {
+  background: linear-gradient(90deg, #0078ff, #00b8ff);
+}
+.boton-azul:hover {
   box-shadow: 0 6px 18px rgba(0, 120, 255, 0.25);
 }
 
-/* Bloque de invitado con animación */
-.invitado-contenedor {
-  margin-top: 40px;
-  margin-bottom: 70px;
-  text-align: center;
-  opacity: 0;
-  animation: aparecer 1.2s ease forwards;
-  animation-delay: 0.6s;
+/* Verde (Registrarse) */
+.boton-verde {
+  background: linear-gradient(90deg, #00c851, #00e676);
+}
+.boton-verde:hover {
+  box-shadow: 0 6px 18px rgba(0, 200, 81, 0.25);
 }
 
-.invitado {
-  text-decoration: none;
-  color: #0078ff;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
-}
+/* -------------------------- */
 
-.invitado::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background-color: #0078ff;
-  transition: width 0.3s ease;
-}
-
-.invitado:hover::after {
-  width: 100%;
-}
-
-.invitado:hover {
-  color: #005ecb;
-}
-
-/* Footer fijo al fondo */
 .footer-basico {
   width: 100%;
   text-align: center;
@@ -240,14 +188,25 @@ main {
   animation-delay: 0.8s;
 }
 
+/* Animaciones */
 @keyframes aparecerAbajo {
-  0% { opacity: 0; transform: translateY(-30px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes aparecer {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* -------- RESPONSIVE -------- */
@@ -307,9 +266,4 @@ main {
     font-size: 0.8rem;
     padding: 15px 0;
   }
-
-  .invitado-contenedor {
-    margin-top: 30px;
-  }
 }
-

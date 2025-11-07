@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #eaf3ff, #f9f9f9 60%);
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* === BARRA SUPERIOR === */
+.barra {
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(90deg, #0078ff, #00b8ff);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  box-shadow: 0 8px 25px rgba(0, 120, 255, 0.25);
+  animation: aparecerAbajo 1s ease forwards;
+}
+
+.logo img {
+  height: 75px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.nav-botones {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ranking {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1.05rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.ranking::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.ranking:hover::after {
+  width: 100%;
+}
+
+button,
+a.volver {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+button:hover,
+a.volver:hover {
+  background-color: #c94b47;
+  transform: translateY(-2px);
+}
+
+/* === TITULO === */
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #0078ff, #00b8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 60px;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+  animation: aparecerAbajo 1s ease forwards;
+  text-align: center;
+}
+
+/* === TABLA === */
+table {
+  width: 90%;
+  max-width: 700px;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 120, 255, 0.15);
+  animation: aparecer 1s ease forwards;
+}
+
+thead {
+  background: linear-gradient(90deg, #0078ff, #00b8ff);
+  color: #fff;
+}
+
+th, td {
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+th {
+  font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+  background: #f3f8ff;
+}
+
+tbody tr:hover {
+  background: #e0f0ff;
+  transition: background 0.3s ease;
+}
+
+a.volver {
+  margin-top: 35px;
+  box-shadow: 0 4px 10px rgba(0, 120, 255, 0.3);
+}
+
+/* === ANIMACIONES === */
+@keyframes aparecerAbajo {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aparecer {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .barra {
+    height: 75px;
+    padding: 0 25px;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .ranking {
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+    margin-top: 40px;
+  }
+
+  table {
+    width: 95%;
+    font-size: 0.95rem;
+  }
+
+  th, td {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.6rem;
+    margin-top: 30px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .barra {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    padding: 10px 0;
+  }
+}
