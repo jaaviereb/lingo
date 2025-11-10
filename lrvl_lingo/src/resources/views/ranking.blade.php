@@ -19,27 +19,33 @@
     </div>
   </nav>
 
-  <h1>Ranking de Jugadores</h1>
+  <main>
+    <h1>Ranking de Jugadores</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Posición</th>
-        <th>Nombre</th>
-        <th>Puntuación</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($usuarios as $index => $user)
+    <table>
+      <thead>
         <tr>
-          <td>{{ $index + 1 }}</td>
-          <td>{{ $user->name }}</td>
-          <td>{{ $user->score }}</td>
+          <th>Posición</th>
+          <th>Nombre</th>
+          <th>Puntuación</th>
         </tr>
-      @endforeach
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        @foreach ($usuarios as $index => $user)
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->score }}</td>
+          </tr>
+        @endforeach
+      </tbody>
+    </table>
 
-  <a href="{{ route('main') }}" class="volver">Volver al juego</a>
+    <a href="{{ route('main') }}" class="volver">Volver al juego</a>
+  </main>
+
+  <footer class="footer-basico">
+    <p>&copy; 2025 Lingo. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>

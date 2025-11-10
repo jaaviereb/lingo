@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM cargado correctamente");
   generarPalabra();
+  iniciarTemporizador();
 });
 
 const teclas = document.querySelectorAll(".tecla");
 const celdas = document.querySelectorAll(".celda");
+const temporizadorEl = document.getElementById("temporizador");
 
 let palabraObjetivo = "";
 let filaActual = 0;
@@ -12,10 +14,11 @@ let posicionActual = 0;
 let palabraActual = "";
 const letrasPorPalabra = 5;
 const totalFilas = 5;
+let tiempoRestante = 30;
+let intervaloTemporizador;
 
 // === OBTENER PALABRA DESDE LARAVEL (DOCKER) ===
 async function generarPalabra() {
-  console.log("Solicitando palabra aleatoria al backend Laravel...");
   try {
     const response = await fetch("/palabrasRandom");
     if (!response.ok) throw new Error("Error al obtener palabra desde Laravel");
@@ -33,8 +36,7 @@ async function verificarDiccionario(palabra) {
     const response = await fetch(`http://185.60.43.155:3000/api/check/${palabra}`);
     if (!response.ok) throw new Error("Error en la API de verificación");
     const data = await response.json();
-    const existe = data.exists ?? data.existe ?? false;
-    return existe;
+    return data.exists ?? data.existe ?? false;
   } catch (error) {
     console.error("Error al verificar palabra:", error);
     return false;
@@ -69,6 +71,41 @@ function actualizarTecla(letra, estado) {
   }
 }
 
+// === TEMPORIZADOR POR LÍNEA ===
+function iniciarTemporizador() {
+  clearInterval(intervaloTemporizador);
+  tiempoRestante = 30;
+  temporizadorEl.textContent = `Tiempo restante por fila: ${tiempoRestante}s`;
+
+  intervaloTemporizador = setInterval(() => {
+    tiempoRestante--;
+    temporizadorEl.textContent = `Tiempo restante por fila: ${tiempoRestante}s`;
+
+    if (tiempoRestante <= 0) {
+      clearInterval(intervaloTemporizador);
+      perderIntentoPorTiempo();
+    }
+  }, 1000);
+}
+
+function perderIntentoPorTiempo() {
+  for (let i = 0; i < letrasPorPalabra; i++) {
+    const indice = filaActual * letrasPorPalabra + i;
+    const celda = celdas[indice];
+    celda.style.backgroundColor = "#999";
+    celda.style.color = "#fff";
+  }
+  filaActual++;
+  posicionActual = 0;
+  palabraActual = "";
+
+  if (filaActual < totalFilas) {
+    iniciarTemporizador();
+  } else {
+    setTimeout(() => alert(`Fin del juego. La palabra era: ${palabraObjetivo}`), 300);
+  }
+}
+
 // === ESCRIBIR LETRA ===
 function escribirLetra(letra) {
   if (filaActual >= totalFilas) return;
@@ -97,8 +134,6 @@ function borrarLetra() {
     posicionActual--;
     const indice = filaActual * letrasPorPalabra + posicionActual;
     const celda = celdas[indice];
-    if (!celda) return;
-
     celda.textContent = "";
     celda.style.backgroundColor = "";
     celda.style.color = "";
@@ -113,7 +148,6 @@ async function comprobarPalabra() {
   const existe = await verificarDiccionario(palabraActual);
   if (!existe) {
     alert("Esa palabra no existe en el diccionario.");
-
     for (let i = 0; i < letrasPorPalabra; i++) {
       const indice = filaActual * letrasPorPalabra + i;
       const celda = celdas[indice];
@@ -121,11 +155,12 @@ async function comprobarPalabra() {
       celda.style.backgroundColor = "";
       celda.style.color = "";
     }
-
     palabraActual = "";
     posicionActual = 0;
     return;
   }
+
+  clearInterval(intervaloTemporizador);
 
   const letrasObjetivo = palabraObjetivo.split("");
   const letrasIntento = palabraActual.split("");
@@ -150,15 +185,14 @@ async function comprobarPalabra() {
   }
 
   if (palabraActual === palabraObjetivo) {
-    // Sumar puntos al usuario autenticado
-    await fetch('/score/sumar', {
-      method: 'POST',
+    await fetch("/score/sumar", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+        "Content-Type": "application/json",
+        "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
       },
-      credentials: 'same-origin',
-      body: JSON.stringify({})
+      credentials: "same-origin",
+      body: JSON.stringify({}),
     });
 
     setTimeout(() => alert("¡Correcto!"), 300);
@@ -170,7 +204,9 @@ async function comprobarPalabra() {
   posicionActual = 0;
   palabraActual = "";
 
-  if (filaActual >= totalFilas) {
+  if (filaActual < totalFilas) {
+    iniciarTemporizador();
+  } else {
     setTimeout(() => alert(`Fin del juego. La palabra era: ${palabraObjetivo}`), 300);
   }
 }
@@ -178,7 +214,6 @@ async function comprobarPalabra() {
 // === TECLADO FÍSICO ===
 document.addEventListener("keydown", (e) => {
   const letra = e.key.toUpperCase();
-
   if (/^[A-ZÑ]$/.test(letra)) {
     escribirLetra(letra);
   } else if (e.key === "Backspace") {
@@ -190,7 +225,6 @@ document.addEventListener("keydown", (e) => {
 teclas.forEach((tecla) => {
   tecla.addEventListener("click", () => {
     const letra = tecla.textContent.trim();
-
     if (letra === "⌫") {
       borrarLetra();
     } else {

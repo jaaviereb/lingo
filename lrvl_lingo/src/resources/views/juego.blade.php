@@ -30,6 +30,9 @@
 
     <main>
         <h1 class="titulo">¡Adivina la palabra!</h1>
+        <div id="temporizador">Tiempo restante por fila: 30s</div>
+
+
 
         <section class="tabla-contenedor">
             @for ($i = 0; $i < 25; $i++)
@@ -57,5 +60,8 @@
             </div>
         </section>
     </main>
+    <footer class="footer-basico">
+        <p>&copy; 2025 Lingo. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
