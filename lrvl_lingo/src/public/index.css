@@ -1,269 +1,261 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #eaf3ff, #f9f9f9 60%);
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
+    background: linear-gradient(135deg, #eaf3ff, #f9f9f9 60%);
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 header {
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 40px;
-  animation: aparecerAbajo 1s ease forwards;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    animation: aparecerAbajo 1s ease forwards;
 }
 
 .marca {
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  background: linear-gradient(90deg, #0078ff, #00b8ff);
-  background-clip: text;
-  color: transparent;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #0078ff, #00b8ff);
+    background-clip: text;
+    color: transparent;
 }
 
 .subtitulo {
-  font-size: 1.1rem;
-  color: #555;
-  margin-top: 8px;
-  letter-spacing: 0.5px;
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
 }
 
 main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .contenedor {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 500px;
-  padding: 20px;
-  opacity: 0;
-  animation: aparecer 1.2s ease forwards;
-  animation-delay: 0.3s;
-  margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    opacity: 0;
+    animation: aparecer 1.2s ease forwards;
+    animation-delay: 0.3s;
+    margin: 0 auto;
 }
 
 .tarjeta {
-  background-color: #fff;
-  width: 100%;
-  padding: 55px 45px;
-  border-radius: 20px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
+    background-color: #fff;
+    width: 100%;
+    padding: 55px 45px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .tarjeta::before {
-  content: "";
-  position: absolute;
-  top: -60%;
-  left: -60%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(0, 120, 255, 0.1), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 0;
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(0, 120, 255, 0.1),
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
 }
 
 .tarjeta:hover::before {
-  opacity: 1;
+    opacity: 1;
 }
 
 .tarjeta h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #111;
-  margin-bottom: 10px;
-  z-index: 1;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 10px;
+    z-index: 1;
 }
 
 .tarjeta .texto {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 35px;
-  text-align: center;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 35px;
+    text-align: center;
 }
 
-/* --------------------------
-   NUEVA SECCIÓN DE BOTONES
---------------------------- */
 .formulario {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  width: 100%;
-  z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    z-index: 1;
 }
 
-/* Base */
 .boton {
-  display: inline-block;
-  width: 100%;
-  max-width: 240px;
-  padding: 16px 0;
-  border: none;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 1.05rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  text-align: center;
+    display: inline-block;
+    width: 100%;
+    max-width: 240px;
+    padding: 16px 0;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
 }
 
-/* Efecto reflejo */
 .boton::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.25);
-  transform: skewX(-20deg);
-  transition: all 0.5s ease;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: skewX(-20deg);
+    transition: all 0.5s ease;
 }
 
 .boton:hover::after {
-  left: 100%;
+    left: 100%;
 }
 
 .boton:hover {
-  transform: translateY(-2px);
+    transform: translateY(-2px);
 }
 
-/* Azul (Iniciar sesión) */
 .boton-azul {
-  background: linear-gradient(90deg, #0078ff, #00b8ff);
+    background: linear-gradient(90deg, #0078ff, #00b8ff);
 }
 .boton-azul:hover {
-  box-shadow: 0 6px 18px rgba(0, 120, 255, 0.25);
+    box-shadow: 0 6px 18px rgba(0, 120, 255, 0.25);
 }
 
-/* Verde (Registrarse) */
 .boton-verde {
-  background: linear-gradient(90deg, #00c851, #00e676);
+    background: linear-gradient(90deg, #00c851, #00e676);
 }
 .boton-verde:hover {
-  box-shadow: 0 6px 18px rgba(0, 200, 81, 0.25);
+    box-shadow: 0 6px 18px rgba(0, 200, 81, 0.25);
 }
-
-/* -------------------------- */
 
 .footer-basico {
-  width: 100%;
-  text-align: center;
-  margin-top: auto;
-  padding: 20px 0;
-  background-color: #f2f6ff;
-  color: #555;
-  font-size: 0.9rem;
-  border-top: 1px solid #ddd;
-  opacity: 0;
-  animation: aparecer 1.2s ease forwards;
-  animation-delay: 0.8s;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    padding: 20px 0;
+    background-color: #f2f6ff;
+    color: #555;
+    font-size: 0.9rem;
+    border-top: 1px solid #ddd;
+    opacity: 0;
+    animation: aparecer 1.2s ease forwards;
+    animation-delay: 0.8s;
 }
 
-/* Animaciones */
 @keyframes aparecerAbajo {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes aparecer {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-/* -------- RESPONSIVE -------- */
-
 @media (max-width: 1024px) {
-  header {
-    margin-top: 40px;
-    margin-bottom: 30px;
-  }
+    header {
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
 
-  .marca {
-    font-size: 2.4rem;
-  }
+    .marca {
+        font-size: 2.4rem;
+    }
 
-  .tarjeta {
-    padding: 45px 35px;
-  }
+    .tarjeta {
+        padding: 45px 35px;
+    }
 
-  .tarjeta h2 {
-    font-size: 1.8rem;
-  }
+    .tarjeta h2 {
+        font-size: 1.8rem;
+    }
 
-  .boton {
-    padding: 14px;
-    font-size: 1rem;
-  }
+    .boton {
+        padding: 14px;
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 600px) {
-  body {
-    padding: 0 10px;
-  }
+    body {
+        padding: 0 10px;
+    }
 
-  header {
-    margin-top: 40px;
-  }
+    header {
+        margin-top: 40px;
+    }
 
-  .marca {
-    font-size: 2.5rem;
-  }
+    .marca {
+        font-size: 2.5rem;
+    }
 
-  .subtitulo {
-    font-size: 1.2rem;
-  }
+    .subtitulo {
+        font-size: 1.2rem;
+    }
 
-  .contenedor {
-    padding: 10px;
-    max-width: 420px;
-  }
+    .contenedor {
+        padding: 10px;
+        max-width: 420px;
+    }
 
-  .tarjeta {
-    padding: 35px 28px;
-    border-radius: 16px;
-  }
+    .tarjeta {
+        padding: 35px 28px;
+        border-radius: 16px;
+    }
 
-  .footer-basico {
-    font-size: 0.8rem;
-    padding: 15px 0;
-  }
+    .footer-basico {
+        font-size: 0.8rem;
+        padding: 15px 0;
+    }
 }

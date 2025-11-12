@@ -142,6 +142,10 @@ function borrarLetra() {
 }
 
 // === COMPROBAR PALABRA ===
+// Se verifica si la palabra introducida existe en el diccionario.
+// Luego se comparan letra por letra con la palabra objetivo para asignar colores
+// (verde: correcta, amarillo: posición incorrecta, rojo: no existe).
+// Si es correcta, se envía puntuación al backend mediante una llamada autenticada.
 async function comprobarPalabra() {
   if (!palabraObjetivo) return;
 
@@ -184,6 +188,7 @@ async function comprobarPalabra() {
     celda.style.color = "#fff";
   }
 
+  // Si el jugador acierta, se notifica al backend para sumar puntuación (autenticado con token CSRF)
   if (palabraActual === palabraObjetivo) {
     await fetch("/score/sumar", {
       method: "POST",
@@ -212,6 +217,7 @@ async function comprobarPalabra() {
 }
 
 // === TECLADO FÍSICO ===
+// Captura la entrada del teclado físico: letras, borrar con Backspace.
 document.addEventListener("keydown", (e) => {
   const letra = e.key.toUpperCase();
   if (/^[A-ZÑ]$/.test(letra)) {
@@ -222,6 +228,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 // === TECLADO EN PANTALLA ===
+// Asocia clics del teclado virtual con las mismas funciones de escritura o borrado.
 teclas.forEach((tecla) => {
   tecla.addEventListener("click", () => {
     const letra = tecla.textContent.trim();

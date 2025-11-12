@@ -1,309 +1,308 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* === ESTRUCTURA GENERAL === */
-html, body {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #eaf3ff, #f9f9f9 60%);
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  overflow: hidden;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #eaf3ff, #f9f9f9 60%);
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
 }
 
-/* === BARRA SUPERIOR === */
 .barra {
-  width: 100%;
-  height: 80px;
-  background: linear-gradient(90deg, #0078ff, #00b8ff);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-  box-shadow: 0 8px 25px rgba(0, 120, 255, 0.25);
-  flex-shrink: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(90deg, #0078ff, #00b8ff);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    box-shadow: 0 8px 25px rgba(0, 120, 255, 0.25);
+    flex-shrink: 0;
 }
 
 .logo img {
-  height: 65px;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
-  transition: transform 0.3s ease;
+    height: 65px;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+    transition: transform 0.3s ease;
 }
 
 .logo img:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .nav-botones {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .ranking {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  font-size: 1.05rem;
-  position: relative;
-  transition: all 0.3s ease;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 1.05rem;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 .ranking::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 2px;
-  background-color: white;
-  transition: width 0.3s ease;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
 }
 
 .ranking:hover::after {
-  width: 100%;
+    width: 100%;
 }
 
 button {
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #c94b47;
+    background-color: #c94b47;
 }
 
-/* === CONTENIDO PRINCIPAL === */
 main {
-  flex: 1;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-/* === TÍTULO === */
 .titulo {
-  font-size: 2.2rem;
-  font-weight: 700;
-  background: linear-gradient(90deg, #0078ff, #00b8ff);
-  background-clip: text;
-  color: transparent;
-  margin-top: 40px;
-  margin-bottom: 0;
-  text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #0078ff, #00b8ff);
+    background-clip: text;
+    color: transparent;
+    margin-top: 40px;
+    margin-bottom: 0;
+    text-align: center;
 }
 
-/* === TEMPORIZADOR === */
 #temporizador {
-  font-size: 1.2rem;
-  font-weight: 600;
-  background: linear-gradient(90deg, #0078ff, #00b8ff);
-  background-clip: text;
-  color: transparent;
-  margin-top: 8px;
-  text-align: center;
-  letter-spacing: 0.5px;
-  animation: parpadeoTiempo 2s infinite ease-in-out;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #0078ff, #00b8ff);
+    background-clip: text;
+    color: transparent;
+    margin-top: 8px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    animation: parpadeoTiempo 2s infinite ease-in-out;
 }
 
 @keyframes parpadeoTiempo {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
 }
 
-/* === TABLERO === */
 .tabla-contenedor {
-  display: grid;
-  grid-template-columns: repeat(5, 85px);
-  grid-template-rows: repeat(5, 85px);
-  gap: 10px;
-  margin: 25px auto 10px;
-  justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(5, 85px);
+    grid-template-rows: repeat(5, 85px);
+    gap: 10px;
+    margin: 25px auto 10px;
+    justify-content: center;
 }
 
 .celda {
-  background-color: #e0e0e0;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.9rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  user-select: none;
+    background-color: #e0e0e0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    user-select: none;
 }
 
-/* === TECLADO === */
 #teclado-pantalla {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 10px;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    align-items: center;
 }
 
 .fila-teclas {
-  display: flex;
-  gap: 6px;
+    display: flex;
+    gap: 6px;
 }
 
 .tecla {
-  width: 55px;
-  height: 55px;
-  border: none;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
-  font-weight: 600;
-  font-size: 16px;
-  color: #333;
-  cursor: pointer;
-  transition: all 0.25s ease;
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
 .tecla:hover {
-  background-color: #f5f8ff;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+    background-color: #f5f8ff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
 }
 
 .tecla:active {
-  transform: scale(0.97);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transform: scale(0.97);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* --------------------------
-   NUEVO FOOTER
--------------------------- */
 .footer-basico {
-  width: 100%;
-  text-align: center;
-  margin-top: auto;
-  padding: 20px 0;
-  background-color: #f2f6ff;
-  color: #555;
-  font-size: 0.9rem;
-  border-top: 1px solid #ddd;
-  opacity: 0;
-  animation: aparecer 1.2s ease forwards;
-  animation-delay: 0.8s;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    padding: 20px 0;
+    background-color: #f2f6ff;
+    color: #555;
+    font-size: 0.9rem;
+    border-top: 1px solid #ddd;
+    opacity: 0;
+    animation: aparecer 1.2s ease forwards;
+    animation-delay: 0.8s;
 }
 
-/* === ANIMACIONES === */
 @keyframes aparecerAbajo {
-  0% { opacity: 0; transform: translateY(-30px); }
-  100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes aparecer {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-/* ==========================================================
-   📱 MÓVIL (0 - 600px)
-   ========================================================== */
 @media (max-width: 600px) {
-  .barra {
-    height: 60px;
-    padding: 0 18px;
-  }
+    .barra {
+        height: 60px;
+        padding: 0 18px;
+    }
 
-  .logo img {
-    height: 48px;
-  }
+    .logo img {
+        height: 48px;
+    }
 
-  .titulo {
-    font-size: 1.8rem;
-    margin-top: 25px;
-  }
+    .titulo {
+        font-size: 1.8rem;
+        margin-top: 25px;
+    }
 
-  #temporizador {
-    font-size: 1rem;
-  }
+    #temporizador {
+        font-size: 1rem;
+    }
 
-  .tabla-contenedor {
-    grid-template-columns: repeat(5, 52px);
-    grid-template-rows: repeat(5, 52px);
-    gap: 6px;
-  }
+    .tabla-contenedor {
+        grid-template-columns: repeat(5, 52px);
+        grid-template-rows: repeat(5, 52px);
+        gap: 6px;
+    }
 
-  .celda {
-    font-size: 1.3rem;
-  }
+    .celda {
+        font-size: 1.3rem;
+    }
 
-  #teclado-pantalla {
-    position: absolute;
-    bottom: 25%;
-    left: 50%;
-    transform: translateX(-50%) scale(0.85);
-  }
+    #teclado-pantalla {
+        position: absolute;
+        bottom: 25%;
+        left: 50%;
+        transform: translateX(-50%) scale(0.85);
+    }
 
-  .tecla {
-    width: 36px;
-    height: 36px;
-    font-size: 13px;
-  }
+    .tecla {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+    }
 
-  .footer-basico {
-    font-size: 0.8rem;
-    padding: 15px 0;
-  }
+    .footer-basico {
+        font-size: 0.8rem;
+        padding: 15px 0;
+    }
 }
 
-/* ==========================================================
-   💻 TABLET (601px - 1000px)
-   ========================================================== */
 @media (min-width: 601px) and (max-width: 1000px) {
-  .barra {
-    height: 70px;
-    padding: 0 30px;
-  }
+    .barra {
+        height: 70px;
+        padding: 0 30px;
+    }
 
-  .titulo {
-    font-size: 2rem;
-  }
+    .titulo {
+        font-size: 2rem;
+    }
 
-  .tabla-contenedor {
-    grid-template-columns: repeat(5, 68px);
-    grid-template-rows: repeat(5, 68px);
-    gap: 8px;
-  }
+    .tabla-contenedor {
+        grid-template-columns: repeat(5, 68px);
+        grid-template-rows: repeat(5, 68px);
+        gap: 8px;
+    }
 
-  .celda {
-    font-size: 1.6rem;
-  }
+    .celda {
+        font-size: 1.6rem;
+    }
 
-  #teclado-pantalla {
-    margin-top: 15px;
-    gap: 6px;
-    transform: scale(0.9);
-  }
+    #teclado-pantalla {
+        margin-top: 15px;
+        gap: 6px;
+        transform: scale(0.9);
+    }
 
-  .tecla {
-    width: 44px;
-    height: 44px;
-    font-size: 14px;
-  }
+    .tecla {
+        width: 44px;
+        height: 44px;
+        font-size: 14px;
+    }
 
-  .footer-basico {
-    font-size: 0.85rem;
-    padding: 18px 0;
-  }
+    .footer-basico {
+        font-size: 0.85rem;
+        padding: 18px 0;
+    }
 }
