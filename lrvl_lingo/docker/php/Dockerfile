@@ -42,3 +42,11 @@ RUN a2enmod rewrite
 WORKDIR /var/www/html
 
 # El puerto 80 ya está expuesto por defecto por la imagen 'php:*-apache'
+
+WEB_PORT=8080
+PHP_ADMIN_PORT=8081
+
+MYSQL_ROOT_PASSWORD=rootpass
+MYSQL_DATABASE=lingo
+MYSQL_USER=lingo_user
+MYSQL_PASSWORD=lingo_user
